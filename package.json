@@ -1,0 +1,21 @@
+{
+    "name": "@ionlu/ppack",
+    "version": "1.0.0",
+    "description": "Pack packages using PNPM (supports workspaces)",
+    "main": "src/ppack.js",
+    "author": "Daniel Duton <daniel@ion.lu>",
+    "license": "MIT",
+    "bin": {
+        "ppack": "src/cli.js"
+    },
+    "devDependencies": {
+        "pnpm": "^6.32.3"
+    },
+    "peerDependencies": {
+        "pnpm": "^6.32.3"
+    },
+    "dependencies": {
+        "fs-extra": "^10.0.1",
+        "sade": "^1.8.1"
+    }
+}
