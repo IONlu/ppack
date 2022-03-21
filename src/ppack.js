@@ -45,12 +45,12 @@ const ppack = async function ppack (dir, opts) {
         await writeJson(path.resolve(tempFolder, 'package.json'), package)
 
         // install packages
-        await execute('pnpm', ['i', '--prefer-offline'], {
+        await execute('pnpm', ['install', '--prefer-offline'], {
             cwd: tempFolder
         })
 
         // remove dev packages
-        await execute('pnpm', ['prune'], {
+        await execute('pnpm', ['prune', '--production'], {
             cwd: tempFolder
         })
 
