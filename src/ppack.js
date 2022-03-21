@@ -1,6 +1,7 @@
 const path = require('path')
 const os = require('os')
 const { readJson, writeJson, copy, rm, ensureDir } = require('fs-extra')
+const set = require('lodash/set')
 const execute = require('./execute.js')
 
 const ppack = async function ppack (dir, opts) {
@@ -24,7 +25,7 @@ const ppack = async function ppack (dir, opts) {
         })
 
         // set pnpm config
-        await execute('pnpm', ['config', '--location', 'project', 'set', 'shamefully-hoist=true'], {
+        await execute('pnpm', ['config', '--location', 'project', 'set', 'node-linker=hoisted'], {
             cwd: tempFolder
         })
 
@@ -37,6 +38,7 @@ const ppack = async function ppack (dir, opts) {
                         if (version.match(/^workspace:/)) {
                             const path = await execute('pnpm', ['--filter', name, 'exec', 'pwd'])
                             package.dependencies[name] = `link:${path}`
+                            set(package, ['dependenciesMeta', name, 'injected'], true)
                         }
                     }
                 )
@@ -45,14 +47,19 @@ const ppack = async function ppack (dir, opts) {
         await writeJson(path.resolve(tempFolder, 'package.json'), package)
 
         // install packages
-        await execute('pnpm', ['install', '--prefer-offline'], {
+        await execute('pnpm', ['install', '--offline'], {
             cwd: tempFolder
         })
 
-        // remove dev packages
-        await execute('pnpm', ['prune', '--production'], {
+        // delete dev packages not used in prod
+        let devPackages = (await execute('pnpm', ['list', '--dev', '--parseable'], {
             cwd: tempFolder
-        })
+        })).trim().split(/\n/).map(line => line.trim())
+        let prodPackages = (await execute('pnpm', ['list', '--prod', '--parseable'], {
+            cwd: tempFolder
+        })).trim().split(/\n/).map(line => line.trim())
+        let packagesToDelete = devPackages.filter(package => !prodPackages.includes(package))
+        await Promise.all(packagesToDelete.map(package => rm(package, { recursive: true, force: true })))
 
         // create targetFolder
         await ensureDir(targetFolder)

@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   fs-extra: ^10.0.1
+  lodash: ^4.17.21
   pnpm: ^6.32.3
   sade: ^1.8.1
 
@@ -10,6 +11,7 @@ dependencies:
   sade: 1.8.1
 
 devDependencies:
+  lodash: 4.17.21
   pnpm: 6.32.3
 
 packages:
@@ -34,6 +36,10 @@ packages:
     optionalDependencies:
       graceful-fs: 4.2.9
     dev: false
+
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: true
 
   /mri/1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}

@@ -9,6 +9,7 @@
         "ppack": "src/cli.js"
     },
     "devDependencies": {
+        "lodash": "^4.17.21",
         "pnpm": "^6.32.3"
     },
     "peerDependencies": {
