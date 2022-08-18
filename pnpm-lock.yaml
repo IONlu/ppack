@@ -1,23 +1,23 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 specifiers:
-  fs-extra: ^10.0.1
+  fs-extra: ^10.1.0
   lodash: ^4.17.21
-  pnpm: ^6.32.3
+  pnpm: ^7.9.3
   sade: ^1.8.1
 
 dependencies:
-  fs-extra: 10.0.1
+  fs-extra: 10.1.0
   sade: 1.8.1
 
 devDependencies:
   lodash: 4.17.21
-  pnpm: 6.32.3
+  pnpm: 7.9.3
 
 packages:
 
-  /fs-extra/10.0.1:
-    resolution: {integrity: sha512-NbdoVMZso2Lsrn/QwLXOy6rm0ufY2zEOKCDzJR/0kBsb0E6qed0P3iYK+Ath3BfvXEeu4JhEtXLgILx5psUfag==}
+  /fs-extra/10.1.0:
+    resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
     engines: {node: '>=12'}
     dependencies:
       graceful-fs: 4.2.9
@@ -46,9 +46,9 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
-  /pnpm/6.32.3:
-    resolution: {integrity: sha512-lMQgROSwiUA+kt+suAPinjNwqevS1Iz0rppWNZ3jHhzeP07RFRQ+Ksai2OlAnM+YjlbHT9niQ4ICBVSqcdQ04w==}
-    engines: {node: '>=12.17'}
+  /pnpm/7.9.3:
+    resolution: {integrity: sha512-0hpAD1vtILw0i9gTN4ffagnScWMW9/avfZIKllBUd++fAvCss+hVgPPDd0HS9XcOT675gid4H9esGkbLdaFy+w==}
+    engines: {node: '>=14.6'}
     hasBin: true
     dev: true
 

@@ -10,13 +10,13 @@
     },
     "devDependencies": {
         "lodash": "^4.17.21",
-        "pnpm": "^6.32.3"
+        "pnpm": "^7.9.3"
     },
     "peerDependencies": {
-        "pnpm": "^6.32.3"
+        "pnpm": "^7.9.3"
     },
     "dependencies": {
-        "fs-extra": "^10.0.1",
+        "fs-extra": "^10.1.0",
         "sade": "^1.8.1"
     }
 }
